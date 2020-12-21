@@ -1,0 +1,1 @@
+console.log("Welcome To EmpWage program");
