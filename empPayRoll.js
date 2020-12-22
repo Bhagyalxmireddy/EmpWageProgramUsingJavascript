@@ -29,7 +29,11 @@
     
         let EmployeePayRollData=new employeePayRollData(1,"Mark",30000);
         console.log(EmployeePayRollData.toString());
-        EmployeePayRollData.name="Bhgyalaxmi";
-        console.log(EmployeePayRollData.toString());
+        try{
+            EmployeePayRollData.name="Bhgyalaxmi";
+            console.log(EmployeePayRollData.toString());
+        }catch(e){
+            console.log(e);
+        }
         let newEmployeePayrollData = new employeePayRollData(1,"Sravani",30000,"F",new Date());
         console.log(newEmployeePayrollData.toString());
