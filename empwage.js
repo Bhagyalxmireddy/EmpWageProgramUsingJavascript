@@ -25,6 +25,7 @@ let totalEmpHrs=0;
 let totalWorkingDays=0;
 let empDailyWageArray = new Array();
 let empDailyWageMap = new Map();
+let empDailyHrsMap = new Map();
 while(totalEmpHrs <= MAX_HRS_IN_MONTH && totalWorkingDays < NUM_OF_WORKING_DAYS){
     totalWorkingDays++;
     let empCheck = Math.floor(Math.random() * 10) % 3;
@@ -97,3 +98,26 @@ function totalDaysWorked(numOfDays,dailyWage){
 }
 console.log("Uc 7G - Number of Days Emp worked : " +
         empDailyWageArray.reduce(totalDaysWorked,0));
+
+ //UC9 Arrow Functions
+ const findTotal=(totalVal,dailyVal)=>{
+    return totalVal+dailyVal;
+}
+let totalHours=Array.from(empDailyHrsMap.values())
+                .filter(dailyHours=>dailyHours>0)
+                .reduce(findTotal,0);
+let toatlSalary=empDailyWageArray.filter(dailyWage=>dailyWage>0)
+                .reduce(findTotal,0);
+console.log("UC9A --emp wage with arrow:" + " Total hours:" + totalHours+ " Total Wages:" + toatlSalary);           
+//UC 9.b Show the full working days, part working days, no working days
+let nonWorkingDays = new Array();
+let parttimeWorkingDays = new Array();
+let fullTimeWorkingDays = new Array();
+empDailyHrsMap.forEach((value, key, map) => {
+    if (value == 8) fullWorkingDays.push(key);
+    else if (value == 4) partWorkingDays.push(key);
+    else nonWorkingDays.push(key);
+});
+console.log("Full working days: " + fullTimeWorkingDays);
+console.log("Part time working days: " + parttimeWorkingDays);
+console.log("Non working days: " + nonWorkingDays);    
